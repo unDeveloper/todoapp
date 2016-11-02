@@ -57,6 +57,6 @@ Rails.application.configure do
     user_name: "contacto@hunabsys.com", #ENV["GMAIL_USERNAME"],
     password: "hunabsys123"#ENV["GMAIL_PASSWORD"]
   }
-  config.web_console.whitelisted_ips = '0.0.0.0/0.0.0.0'
+  # config.web_console.whitelisted_ips = '0.0.0.0/0.0.0.0'
   config.action_controller.allow_forgery_protection = false
 end

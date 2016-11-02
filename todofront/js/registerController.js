@@ -9,6 +9,7 @@ todoapp.controller('RegisterController',['$scope','$http',function($scope,$http)
 
   $scope.submitRegister = function(valid){
     console.log("submitUser function");
+    $scope.registerForm.confirm_success_url = "http://localhost/todofront/#/home";
     if(valid){
       $http.post(todoapp.apiHost+"/auth",$scope.registerForm).then(function successCallback(response){
         console.log("register");
