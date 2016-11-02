@@ -1,0 +1,49 @@
+<div class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Task Modal</h4>
+      </div>
+      <div class="modal-body">
+    		<form class="form-horizontal" role="form">
+    		  <div class="form-group">
+    		    <label for="task_title" class="col-sm-2 control-label">Title</label>
+    		    <div class="col-sm-10">
+    		      <input type="text" class="form-control" id="task_title" placeholder="Appoiment with client" ng-model="taskForm.title">
+    		    </div>
+    		  </div>
+    		  <div class="form-group">
+    		    <label for="task_description" class="col-sm-2 control-label">Description</label>
+    		    <div class="col-sm-10">
+    		      <input type="text" class="form-control" id="task_description" placeholder="Task description" ng-model="taskForm.description">
+    		    </div>
+    		  </div>
+          <div class="form-group">
+            <label for="task_location" class="col-sm-2 control-label">Location</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="task_location" placeholder="Appoiment address" ng-model="taskForm.location">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="task_scheduled_day" class="col-sm-2 control-label">Scheduled At</label>
+            <div class="col-sm-10">
+              <div class="col-sm-5" style="display:inline;">
+                <!-- <md-datepicker ng-model="taskForm.scheduled_day" md-placeholder="Date"></md-datepicker> -->
+                <input type="date" class="form-control" id="task_scheduled_day" placeholder="Date"ng-model="taskForm.scheduled_day">
+              </div>
+              <div class="col-sm 5" style="display:inline-table;">
+                <input type="time" class="form-control" id="task_scheduled_hour" placeholder="Hour (00:00:00)"ng-model="taskForm.scheduled_hour">
+              </div>
+            </div>
+          </div>
+    		</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">OK</button>
+        <button type="button" ng-click="cancel()" class="btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  status: 1
+  location: MyText
+  user: one
+  scheduled_day: 2016-11-02
+  scheduled_hour: 2016-11-02 11:54:36
+
+two:
+  description: MyString
+  status: 1
+  location: MyText
+  user: two
+  scheduled_day: 2016-11-02
+  scheduled_hour: 2016-11-02 11:54:36

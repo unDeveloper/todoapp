@@ -21,3 +21,11 @@ input .ng-invalid.ng-dirty {
 input .ng-valid.ng-dirty{
 	border-color: #78FA89 !important;/* GREEN */
 }
+
+table thead th{
+	text-align: center;
+}
+
+.hourtd{
+	text-align: center;
+}
