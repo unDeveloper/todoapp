@@ -1,0 +1,23 @@
+.ng-invalid.ng-dirty {
+	border-color: #FA787E !important;  /* RED */
+}
+
+.ng-valid.ng-dirty{
+	border-color: #78FA89 !important;/* GREEN */
+}
+
+form .ng-invalid.ng-dirty {
+	border-color: #FA787E !important;  /* RED */
+}
+
+form .ng-valid.ng-dirty{
+	border-color: #78FA89 !important;/* GREEN */
+}
+
+input .ng-invalid.ng-dirty {
+	border-color: #FA787E !important;  /* RED */
+}
+
+input .ng-valid.ng-dirty{
+	border-color: #78FA89 !important;/* GREEN */
+}
