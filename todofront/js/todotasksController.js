@@ -35,16 +35,19 @@ todoapp.controller('TodotasksController', ['$scope','$http','$auth','ModalServic
   };
 
   $scope.addNewTask = function(hour){
+    initialFormData = {
+    };
     ModalService.showModal({
        templateUrl: "templates/modals/newEditTasks.html",
        controller: "AddEditController",
        inputs: {
-         title: "A More Complex Example"
+         formData: initialFormData
        }
      }).then(function(modal) {
        modal.element.modal();
        modal.close.then(function(result) {
-         $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+         console.log(result)
+        //  $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
        });
      });
   };
