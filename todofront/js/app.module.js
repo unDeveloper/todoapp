@@ -1,7 +1,7 @@
 var todoapp = angular.module('todoapp',['ng-token-auth','ui.router','ui-notification','ngMaterial','angularModalService']);
 
 /*******Configs init*******/
-todoapp.apiHost = "http://localhost:3002";
+todoapp.apiHost = "http://localhost:3000";
 // todoapp.rootHost = "http://localhost/app"
 todoapp.config(function($authProvider, NotificationProvider){
   $authProvider.configure({

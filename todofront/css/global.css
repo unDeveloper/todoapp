@@ -1,31 +1,19 @@
-.ng-invalid.ng-dirty {
-	border-color: #FA787E !important;  /* RED */
+.ng-dirty.ng-valid{
+	border-color: #78FA89 !important;
 }
 
-.ng-valid.ng-dirty{
-	border-color: #78FA89 !important;/* GREEN */
+.ng-touched.ng-invalid.ng-invalid-required{
+	border-color: #FA787E !important;
 }
 
-form .ng-invalid.ng-dirty {
-	border-color: #FA787E !important;  /* RED */
+.ng-dirty.ng-invalid.ng-invalid-required{
+	border-color: #FA787E !important;
 }
 
-form .ng-valid.ng-dirty{
-	border-color: #78FA89 !important;/* GREEN */
+form.ng-submitted input.ng-invalid.ng-invalid-required{
+	border-color: #FA787E !important;
 }
 
-input .ng-invalid.ng-dirty {
-	border-color: #FA787E !important;  /* RED */
-}
-
-input .ng-valid.ng-dirty{
-	border-color: #78FA89 !important;/* GREEN */
-}
-
-table thead th{
-	text-align: center;
-}
-
-.hourtd{
-	text-align: center;
+form.ng-submitted select.ng-invalid.ng-invalid-required{
+	border-color: #FA787E !important;
 }

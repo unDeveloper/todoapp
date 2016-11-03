@@ -12,13 +12,17 @@
           <td class="col-md-1 hourtd">
             <div>{{hour < 10 ? '0'+hour+':00' : hour+':00'}}
           </td>
-          <td ng-click="addNewTask(hour)">
-            <ul>
-              <li ng-repeat="task in tasks">
-                <!-- {{task.scheduled_hour.substring(0,2)==hour}} -->
-                <span ng-if="task.scheduled_hour.substring(0,2) == hour">{{task.title + '-' + task.scheduled_hour}}</span>
+          <td ng-click="addNewTask(hour,{})">
+            <div style="display:inline-table" ng-repeat="task in tasks track by $index"
+              ng-if="task.scheduled_hour.substring(0,2) == hour" ng-click="addNewTask(hour,task); return; $event.stopPropagation();">
+              {{task.title + '-' + task.scheduled_hour}}
+            </div>
+            <!--<ul>
+              <li ng-repeat="task in tasks track by $index">
+                <!-- {{task.scheduled_hour.substring(0,2)==hour}}
+                <div ng-if="task.scheduled_hour.substring(0,2) == hour">{{task.title + '-' + task.scheduled_hour}}</span>
               </li>
-            </ul>
+            </ul>-->
           </td>
         </tr>
       </tbody>

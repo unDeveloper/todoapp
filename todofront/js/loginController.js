@@ -1,4 +1,4 @@
-todoapp.controller('LoginController',['$scope','$auth','$http','$state', function($scope,$auth,$http,$state){
+todoapp.controller('LoginController',['$scope','$auth','$http','$state','Notification', function($scope,$auth,$http,$state, Notification){
   $scope.loginForm = null
   $scope.initForm = function(){
     $scope.loginForm = {};

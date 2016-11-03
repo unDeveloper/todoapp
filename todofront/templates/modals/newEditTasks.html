@@ -2,11 +2,11 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">Task Modal</h4>
       </div>
       <div class="modal-body">
-    		<form class="form-horizontal" role="form" name="taks_form" id="task_form" ng-submit="closeModal(task_form)" novalidate>
+    		<form class="form-horizontal" ng-submit="closeModal(task_form)" role="form" name="task_form" id="task_form" novalidate>
     		  <div class="form-group">
     		    <label for="task_title" class="col-sm-2 control-label">Title</label>
     		    <div class="col-sm-10">
@@ -38,15 +38,11 @@
             </div>
           </div>
           <div class="form-group" style="padding-left: 80%;">
-            <button type="submit" class="btn btn-primary" data-dismiss="modal">Save</button>
+            <button type="submit" class="btn btn-primary">Save</button>
             <button type="button" ng-click="cancel()" class="btn">Cancel</button>
           </div>
     		</form>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" ng-click="close()" class="btn btn-primary" data-dismiss="modal">OK</button>
-        <button type="button" ng-click="cancel()" class="btn">Cancel</button>
-      </div> -->
     </div>
   </div>
 </div>

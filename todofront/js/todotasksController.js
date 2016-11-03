@@ -1,4 +1,4 @@
-todoapp.controller('TodotasksController', ['$scope','$http','$auth','ModalService',function($scope,$http,$auth,ModalService){
+todoapp.controller('TodotasksController', ['$scope','$http','$auth','ModalService','Notification',function($scope,$http,$auth,ModalService,Notification){
   console.log("TodotasksController");
   $scope.detailsHours = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
   $scope.userEmail = null;
@@ -34,9 +34,8 @@ todoapp.controller('TodotasksController', ['$scope','$http','$auth','ModalServic
     });
   };
 
-  $scope.addNewTask = function(hour){
-    initialFormData = {
-    };
+  $scope.addNewTask = function(hour,object){
+    initialFormData = object;
     ModalService.showModal({
        templateUrl: "templates/modals/newEditTasks.html",
        controller: "AddEditController",
@@ -47,8 +46,34 @@ todoapp.controller('TodotasksController', ['$scope','$http','$auth','ModalServic
        modal.element.modal();
        modal.close.then(function(result) {
          console.log(result)
-        //  $scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+         if(typeof result.formData != "undefined" && result.formData!="null"){
+           //result.formData.scheduled_hour = result.formData.scheduled_hour.toLocaleTimeString();
+           //var indexOf = result.formData.scheduled_hour.indexOf('T')
+           //result.formData.scheduled_hour = result.formData.scheduled_hour.substring(indexOf+1,indexOf+9)
+           if(typeof result.formData.id != "undefined" && result.formData.id != null){
+             $scope.saveTasks({task: result.formData}, true);
+           }else{
+             $scope.saveTasks({task: result.formData}, false);
+           }
+         }
        });
      });
+  };
+
+  $scope.saveTasks = function(toSave, isEdit){
+    var url = todoapp.apiHost+"/api/tasks"
+    if(!isEdit){
+      $http.post(url, toSave).then(function successCallback(resp){
+        $scope.getTasksByUser();
+      }, function errorCallback(err){
+        Notification.error("Something went terrebly wrong");
+      })
+    }else{
+      $http.put(url+"/"+toSave.task.id, toSave).then(function successCallback(resp){
+        $scope.getTasksByUser();
+      }, function errorCallback(err){
+        Notification.error("Something went terrebly wrong");
+      })
+    }
   };
 }]);

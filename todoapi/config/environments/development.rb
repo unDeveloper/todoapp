@@ -54,8 +54,8 @@ Rails.application.configure do
     domain: "gmail.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "contacto@hunabsys.com", #ENV["GMAIL_USERNAME"],
-    password: "hunabsys123"#ENV["GMAIL_PASSWORD"]
+    user_name: "csrotero@gmail.com", #ENV["GMAIL_USERNAME"],
+    password: "destiny_serac_21"#ENV["GMAIL_PASSWORD"]
   }
   # config.web_console.whitelisted_ips = '0.0.0.0/0.0.0.0'
   config.action_controller.allow_forgery_protection = false
