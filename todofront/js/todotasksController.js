@@ -1,4 +1,4 @@
-todoapp.controller('TodotasksController', ['$scope','$http','$auth','ModalService','Notification',function($scope,$http,$auth,ModalService,Notification){
+todoapp.controller('TodotasksController', ['$scope','$http','$auth','ModalService','Notification','$state',function($scope,$http,$auth,ModalService,Notification,$state){
   console.log("TodotasksController");
   $scope.detailsHours = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
   $scope.userEmail = null;
@@ -40,13 +40,14 @@ todoapp.controller('TodotasksController', ['$scope','$http','$auth','ModalServic
        templateUrl: "templates/modals/newEditTasks.html",
        controller: "AddEditController",
        inputs: {
-         formData: initialFormData
+         formData: initialFormData,
+         hour: hour
        }
      }).then(function(modal) {
        modal.element.modal();
        modal.close.then(function(result) {
          console.log(result)
-         if(typeof result.formData != "undefined" && result.formData!="null"){
+         if(typeof result.formData != "undefined" && result.formData!=null){
            //result.formData.scheduled_hour = result.formData.scheduled_hour.toLocaleTimeString();
            //var indexOf = result.formData.scheduled_hour.indexOf('T')
            //result.formData.scheduled_hour = result.formData.scheduled_hour.substring(indexOf+1,indexOf+9)
@@ -76,4 +77,12 @@ todoapp.controller('TodotasksController', ['$scope','$http','$auth','ModalServic
       })
     }
   };
+
+  $scope.signOutUser = function(){
+    $auth.signOut().then(function successCallback(resp){
+      $state.go("home");
+    }, function errorCallback(err){
+
+    })
+  }
 }]);

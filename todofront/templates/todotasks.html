@@ -1,5 +1,5 @@
 <div ng-init="initScreen()">
-  <h1>Todo Tasks {{userEmail}}</h1>
+  <h1>Todo Tasks {{userEmail}}</h1> <a ng-click="signOutUser()">Sign Out</a>
   <md-datepicker ng-model="selectedDate" md-placeholder="Enter date"></md-datepicker>
   <div>
     <table id="table_tasks" class="table table-bordered">
