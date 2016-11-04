@@ -1,16 +1,9 @@
-class Api::V1::TasksController < ApplicationController
-
-  class Task < ::Task
-    def as_json(options = {})
-      super.merge(scheduled_day: scheduled_date)
-    end
-  end
-
+class Api::V2::TasksController < ApplicationController
   def index
     tasks = Task.where(user_id: current_user.id)
 
     if params[:date]
-      tasks = tasks.where(scheduled_day: params[:date])
+      tasks = tasks.where(scheduled_date: params[:date])
     end
 
     render :json => tasks
@@ -22,7 +15,6 @@ class Api::V1::TasksController < ApplicationController
 
   def create
     task = Task.new(task_params)
-    # task.scheduled_date = params[:scheduled_day]
     task.user_id = current_user.id
     if task.save
       render :json => task, :status => 200
@@ -48,6 +40,6 @@ class Api::V1::TasksController < ApplicationController
 
   protected
     def task_params
-      params.require(:task).permit(:title,:description,:scheduled_day,:scheduled_hour,:location)
+      params.require(:task).permit(:title,:description,:scheduled_date,:scheduled_hour,:location)
     end
 end

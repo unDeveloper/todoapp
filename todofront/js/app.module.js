@@ -25,6 +25,17 @@ todoapp.config(function($authProvider, NotificationProvider){
   });
 });
 
+todoapp.config(['$httpProvider',function($httpProvider){
+  $httpProvider.interceptors.push(function($rootScope){
+    return{
+      request: function(req){
+        req.headers['Accept'] = req.headers['Accept'].toString()+", application/vnd.example.v1";
+        return req;
+      }
+    };
+  });
+}]);
+
 /*******Directives init*******/
 var comparePasswords = function() {
   return {
